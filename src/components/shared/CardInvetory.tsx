@@ -8,19 +8,19 @@ function CardInventory() {
   };
 
   return (
-    <div className="row">
-      <div className="col-sm-12">
+    <div className="inventory">
+     
         <div className="card">
           <div className="card-body">
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-lg-6">
                 <img
                   src="/img/products.png"
                   className="img-fluid"
                   alt="productos"
                 />
               </div>
-              <div className="col-sm-6">
+              <div className="col-lg-6">
                 <h2 className="card-title">Crea tu producto</h2>
                 <h3 className="card-text">
                   Organiza de manera profecional tu inventario.
@@ -43,7 +43,7 @@ function CardInventory() {
         <p className="text-center my-2">
           Inicia sesión para poder ver tu inventario
         </p>
-      </div>
+      
     </div>
   );
 }

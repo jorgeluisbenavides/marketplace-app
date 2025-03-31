@@ -27,7 +27,17 @@
 .btn-toggle-sidebar-arrow {
   display: none;
 }
-
+.inventory .card {
+  max-width: 500px;
+}
+.alert {
+  padding: 5px;
+}
+@media (max-width: 969px) {
+  .inventory .card {
+    max-width: 300px;
+  }
+}
 @media (max-width: 768px) {
   .btn-toggle-sidebar-arrow {
     display: block;

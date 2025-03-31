@@ -85,79 +85,92 @@ function SignUp() {
 
   return (
     <div className="container mt-4">
-      <h2>Crea una cuenta</h2>
-      {error && <div className="alert alert-danger">{error}</div>}
-      {success && <div className="alert alert-success">Registro exitoso.</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <div className="form-group">
-            <label className="form-label">Nombre:</label>
-            <input
-              className="form-control"
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Email:</label>
-          <input
-            className="form-control"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Contraseña:</label>
-          <input
-            className="form-control"
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Confirmar Contraseña:</label>
-          <input
-            className="form-control"
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-check form-switch mb-3">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            role="switch"
-            id="flexSwitchCheckDefault"
-            name="profile"
-            checked={formData.profile === "seller"}
-            onChange={handleChange}
-          />
-          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-            Registrar como Vendedor
-          </label>
-        </div>
+      <div className="card">
+        <div className="card-body">
+          <h2>Crea una cuenta</h2>
+          {error && <div className="alert alert-danger">{error}</div>}
+          {success && (
+            <div className="alert alert-success">Registro exitoso.</div>
+          )}
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <div className="form-group">
+                <label className="form-label">Nombre:</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Email:</label>
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Contraseña:</label>
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Confirmar Contraseña:</label>
+              <input
+                className="form-control"
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-check form-switch mb-3">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                name="profile"
+                checked={formData.profile === "seller"}
+                onChange={handleChange}
+              />
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Registrar como Vendedor
+              </label>
+            </div>
 
-        <button className="btn btn-primary" type="submit">
-          Registrarse
-        </button>
+            <button className="btn btn-primary" type="submit">
+              Registrarse
+            </button>
 
-        <button className="btn btn-info m-1" type="button" onClick={goSignIn}>
-          Inicia sesión
-        </button>
-      </form>
+            <button
+              className="btn btn-info m-1"
+              type="button"
+              onClick={goSignIn}
+            >
+              Inicia sesión
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

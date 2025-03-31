@@ -4,19 +4,31 @@ import { formatCurrency } from "../../utils/formatCurrency";
 interface TableProductoProps {
   products: ProductInterface[] | [];
   isLoading: boolean;
+  setIsCreateNewProduct: (isCreateProduct: boolean) => void;
+  onEditProduct: (product: ProductInterface) => void;
 }
 
-function TableProducts({ products, isLoading }: TableProductoProps) {
-  console.log(isLoading);
+function TableProducts({
+  products,
+  setIsCreateNewProduct,
+  onEditProduct,
+}: TableProductoProps) {
   
+  const handleCreationProduct = () => {
+    setIsCreateNewProduct(true);
+  };
+
   return (
     <div>
       <div className="py-2">
-        <button type="button" className="btn btn-primary">
+        <button
+          onClick={handleCreationProduct}
+          type="button"
+          className="btn btn-primary"
+        >
           Crear producto
         </button>
       </div>
-
       <table className="table table-striped">
         <thead>
           <tr>
@@ -24,6 +36,7 @@ function TableProducts({ products, isLoading }: TableProductoProps) {
             <th>SKU</th>
             <th>Cantidad</th>
             <th>Precio</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +53,11 @@ function TableProducts({ products, isLoading }: TableProductoProps) {
                 <td>{item.sku}</td>
                 <td>{item.quantity}</td>
                 <td>{formatCurrency(item.price)}</td>
+                <td>
+                  <button className="btn btn-dark" onClick={() => onEditProduct(item)}>
+                    <i className="bi bi-pencil-square"></i>
+                  </button>
+                </td>
               </tr>
             ))
           )}

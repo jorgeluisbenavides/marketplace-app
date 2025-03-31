@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { authKeys } from "../../enums/authEnum";
 import { UserInterface } from "../../interfaces/UserInterface";
 
 interface SidebarProps {
-  user: UserInterface | null;
-  setUser: (user: UserInterface | null) => void;
+  user: UserInterface | null; //Input
+  setUser: (user: UserInterface | null) => void; // output
 }
 
 function Sidebar({ user, setUser }: SidebarProps) {
@@ -49,7 +48,7 @@ function Sidebar({ user, setUser }: SidebarProps) {
           <li className="nav-item">
             <button
               type="button"
-              className="btn-toggle-sidebar-arrow"
+              className="btn btn-dark btn-toggle-sidebar-arrow"
               onClick={toggleSidebar}
             >
               <i className="bi bi-arrow-right"></i>

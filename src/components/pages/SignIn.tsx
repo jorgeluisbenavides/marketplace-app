@@ -25,6 +25,7 @@ function SignIn({ user, setUser }: SignInProps) {
     email: "",
     password: "",
   });
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -80,39 +81,56 @@ function SignIn({ user, setUser }: SignInProps) {
     }
   };
 
+  const goSignUn = () => {
+    navigate("/registro");
+  };
+
   return (
     <div className="container mt-4">
-      <h2>Inicia con tu cuenta</h2>
-      {error && <div className="alert alert-danger">{error}</div>}
-      {success && <div className="alert alert-success">Inicio exitoso.</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Email:</label>
-          <input
-            className="form-control"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Contraseña:</label>
-          <input
-            className="form-control"
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
+      <div className="card">
+        <div className="card-body">
+          <h2>Inicia con tu cuenta</h2>
+          {error && <div className="alert alert-danger">{error}</div>}
+          {success && (
+            <div className="alert alert-success">Inicio exitoso.</div>
+          )}
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label">Email:</label>
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Contraseña:</label>
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-        <button className="btn btn-primary" type="submit">
-          Iniciar sesión
-        </button>
-      </form>
+            <button className="btn btn-primary" type="submit">
+              Iniciar sesión
+            </button>
+            <button
+              className="btn btn-info m-1"
+              type="button"
+              onClick={goSignUn}
+            >
+              Regístrate
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
