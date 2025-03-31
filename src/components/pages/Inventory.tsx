@@ -5,7 +5,6 @@ import { Modal, Button } from "react-bootstrap";
 import CardInventory from "../shared/CardInvetory";
 import TableProducts from "../shared/TableProducts";
 import { authKeys } from "../../enums/authEnum";
-import Swal from "sweetalert2";
 
 const API_URL = import.meta.env.VITE_API_URL;
 interface AppLayoutProps {
@@ -17,7 +16,7 @@ function Inventory({ user }: AppLayoutProps) {
   const [showModal, setShowModal] = useState(false);
   const [productsList, setProductsList] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  // const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     console.log(user);
@@ -56,8 +55,8 @@ function Inventory({ user }: AppLayoutProps) {
       setProductsList(data);
       setLoading(false);
     } catch (error: any) {
-      setError(error.message); // Maneja el error
-      setLoading(false); // Actualiza el estado de carga
+      // setError(error.message); 
+      setLoading(false);
     }
   };
 
@@ -66,7 +65,7 @@ function Inventory({ user }: AppLayoutProps) {
       <h2>Inventario</h2>
 
       {user !== null ? (
-        <TableProducts products={productsList} />
+        <TableProducts products={productsList} isLoading={loading}/>
       ) : (
         <CardInventory />
       )}

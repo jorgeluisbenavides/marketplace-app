@@ -3,10 +3,12 @@ import { formatCurrency } from "../../utils/formatCurrency";
 
 interface TableProductoProps {
   products: ProductInterface[] | [];
-  loading: boolean;
+  isLoading: boolean;
 }
 
-function TableProducts({ products, loading }: TableProductoProps) {
+function TableProducts({ products, isLoading }: TableProductoProps) {
+  console.log(isLoading);
+  
   return (
     <div>
       <div className="py-2">
